@@ -43,9 +43,7 @@ class Biblioteca:
             self.__miembros.append(miembro)
             print(f"✔ Miembro '{nombre}' agregado correctamente.")
 
-    # ------------------------------------------------------------------ #
-    #  BUSCAR (uso interno)                                                #
-    # ------------------------------------------------------------------ #
+    #  BUSCAR   #
     def buscarLibro(self, isbn):
         """Devuelve el objeto Libro con ese ISBN. Lanza LibroNoEncontradoError si no existe."""
         for libro in self.__libros:
@@ -60,9 +58,7 @@ class Biblioteca:
                 return miembro
         raise MiembroNoEncontradoError(f"No se encontró ningún miembro con DNI {dni}.")
 
-    # ------------------------------------------------------------------ #
-    #  MOSTRAR                                                             #
-    # ------------------------------------------------------------------ #
+    #  MOSTRAR  #
     def mostrarLibros(self):
         """Muestra todos los libros registrados."""
         if not self.__libros:
@@ -83,9 +79,9 @@ class Biblioteca:
             print(miembro)
         print("====================\n")
 
-    # ------------------------------------------------------------------ #
-    #  PRÉSTAMO                                                            #
-    # ------------------------------------------------------------------ #
+
+    #  PRÉSTAMO #
+  
     def prestarLibro(self, isbn, dni):
         """
         Presta un libro a un miembro.
@@ -102,7 +98,6 @@ class Biblioteca:
                     f"Está prestado a {libro.getMiembroPrestamo().getNombre()}."
                 )
 
-            # Actualizar estado
             libro.setEstado("Prestado")
             libro.setMiembroPrestamo(miembro)
             miembro.agregarLibroPrestado(libro)
@@ -116,9 +111,8 @@ class Biblioteca:
         except LibroNoDisponibleError as e:
             print(f"Error: {e}")
 
-    # ------------------------------------------------------------------ #
-    #  DEVOLUCIÓN                                                          #
-    # ------------------------------------------------------------------ #
+    
+    #  DEVOLUCIÓN #
     def devolverLibro(self, isbn, dni):
         """
         Registra la devolución de un libro.
@@ -153,9 +147,9 @@ class Biblioteca:
         except LibroNoPrestadoError as e:
             print(f"Error: {e}")
 
-    # ------------------------------------------------------------------ #
-    #  CONSULTA DE ESTADO                                                  #
-    # ------------------------------------------------------------------ #
+   
+    #  CONSULTA DE ESTADO #
+   
     def consultarEstadoLibros(self):
         """Muestra el estado de cada libro (disponible o prestado a quién)."""
         if not self.__libros:
