@@ -6,7 +6,6 @@ class Libro:
         self.__estado = "Disponible"   
         self.__miembro_prestamo = None 
 
-    # --- Getters ---
     def getTitulo(self):
         return self.__titulo
 
@@ -22,7 +21,6 @@ class Libro:
     def getMiembroPrestamo(self):
         return self.__miembro_prestamo
 
-    # --- Setters ---
     def setEstado(self, estado):
         self.__estado = estado
 
