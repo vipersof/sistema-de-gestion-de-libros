@@ -27,7 +27,7 @@ class Biblioteca:
     def agregarLibro(self, titulo, autor, isbn):
         """Crea y agrega un libro nuevo. Lanza ValueError si el ISBN ya existe."""
         try:
-            self.buscarLibro(isbn)          # si lo encuentra, el ISBN ya está
+            self.buscarLibro(isbn) 
             raise ValueError(f"Ya existe un libro con ISBN {isbn}.")
         except LibroNoEncontradoError:
             libro = Libro(titulo, autor, isbn)
@@ -103,7 +103,7 @@ class Biblioteca:
                     f"Está prestado a {libro.getMiembroPrestamo().getNombre()}."
                 )
 
-            # Actualizar estado
+           
             libro.setEstado("Prestado")
             libro.setMiembroPrestamo(miembro)
             miembro.agregarLibroPrestado(libro)
@@ -140,7 +140,7 @@ class Biblioteca:
                     f"El libro '{libro.getTitulo()}' no está prestado a {miembro.getNombre()}."
                 )
 
-            # Actualizar estado
+            
             libro.setEstado("Disponible")
             libro.setMiembroPrestamo(None)
             miembro.quitarLibroPrestado(libro)
