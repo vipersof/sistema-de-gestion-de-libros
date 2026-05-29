@@ -3,9 +3,10 @@ class Libro:
         self.__titulo = titulo
         self.__autor = autor
         self.__isbn = isbn
-        self.__estado = "Disponible"   
-        self.__miembro_prestamo = None 
+        self.__estado = "Disponible"  
+        self.__miembro_prestamo = None  
 
+    # --- Getters ---
     def getTitulo(self):
         return self.__titulo
 
@@ -21,12 +22,14 @@ class Libro:
     def getMiembroPrestamo(self):
         return self.__miembro_prestamo
 
+    # --- Setters ---
     def setEstado(self, estado):
         self.__estado = estado
 
     def setMiembroPrestamo(self, miembro):
         self.__miembro_prestamo = miembro
- 
+
+    # --- Representación legible ---
     def __str__(self):
         if self.__estado == "Disponible":
             return (f"Título: {self.__titulo} | Autor: {self.__autor} "
