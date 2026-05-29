@@ -2,7 +2,7 @@ class Miembro:
     def __init__(self, dni, nombre):
         self.__dni = dni
         self.__nombre = nombre
-        self.__libros_prestados = []   # lista de libros que tiene este miembro
+        self.__libros_prestados = []   
 
     # --- Getters ---
     def getNombre(self):
@@ -14,14 +14,12 @@ class Miembro:
     def getLibrosPrestados(self):
         return self.__libros_prestados
 
-    # --- Métodos para gestionar préstamos ---
     def agregarLibroPrestado(self, libro):
         self.__libros_prestados.append(libro)
 
     def quitarLibroPrestado(self, libro):
         self.__libros_prestados.remove(libro)
 
-    # --- Representación legible ---
     def __str__(self):
         if not self.__libros_prestados:
             return (f"Nombre: {self.__nombre} | DNI: {self.__dni} "
