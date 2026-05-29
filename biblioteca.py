@@ -45,17 +45,15 @@ class Biblioteca:
             print(f"✔ Miembro '{nombre}' agregado correctamente.")
 
     # ------------------------------------------------------------------ #
-    #  BUSCAR (uso interno)                                                #
+    #  BUSCAR                                                 #
     # ------------------------------------------------------------------ #
     def buscarLibro(self, isbn):
-        """Devuelve el objeto Libro con ese ISBN. Lanza LibroNoEncontradoError si no existe."""
         for libro in self.__libros:
             if str(libro.getIsbn()) == str(isbn):
                 return libro
         raise LibroNoEncontradoError(f"No se encontró ningún libro con ISBN {isbn}.")
 
     def buscarMiembro(self, dni):
-        """Devuelve el objeto Miembro con ese DNI. Lanza MiembroNoEncontradoError si no existe."""
         for miembro in self.__miembros:
             if str(miembro.getDni()) == str(dni):
                 return miembro
@@ -65,7 +63,6 @@ class Biblioteca:
     #  MOSTRAR                                                             #
     # ------------------------------------------------------------------ #
     def mostrarLibros(self):
-        """Muestra todos los libros registrados."""
         if not self.__libros:
             print("No hay libros registrados.")
             return
@@ -75,7 +72,6 @@ class Biblioteca:
         print("==================\n")
 
     def mostrarMiembros(self):
-        """Muestra todos los miembros registrados."""
         if not self.__miembros:
             print("No hay miembros registrados.")
             return
@@ -88,11 +84,6 @@ class Biblioteca:
     #  PRÉSTAMO                                                            #
     # ------------------------------------------------------------------ #
     def prestarLibro(self, isbn, dni):
-        """
-        Presta un libro a un miembro.
-        Lanza excepciones si el libro o miembro no existen,
-        o si el libro ya está prestado.
-        """
         try:
             libro = self.buscarLibro(isbn)
             miembro = self.buscarMiembro(dni)
@@ -121,11 +112,7 @@ class Biblioteca:
     #  DEVOLUCIÓN                                                          #
     # ------------------------------------------------------------------ #
     def devolverLibro(self, isbn, dni):
-        """
-        Registra la devolución de un libro.
-        Lanza excepciones si el libro o miembro no existen,
-        o si el libro no estaba prestado a ese miembro.
-        """
+
         try:
             libro = self.buscarLibro(isbn)
             miembro = self.buscarMiembro(dni)
@@ -158,7 +145,6 @@ class Biblioteca:
     #  CONSULTA DE ESTADO                                                  #
     # ------------------------------------------------------------------ #
     def consultarEstadoLibros(self):
-        """Muestra el estado de cada libro (disponible o prestado a quién)."""
         if not self.__libros:
             print("No hay libros registrados.")
             return
@@ -168,7 +154,6 @@ class Biblioteca:
         print("============================\n")
 
     def consultarLibrosMiembro(self, dni):
-        """Muestra los libros prestados a un miembro específico."""
         try:
             miembro = self.buscarMiembro(dni)
             libros = miembro.getLibrosPrestados()
