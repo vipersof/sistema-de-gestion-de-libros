@@ -71,6 +71,5 @@ def main():
             print(f"Error inesperado: {e}")
 
 
-# Punto de entrada del programa
 if __name__ == "__main__":
     main()
