@@ -4,7 +4,6 @@ class Miembro:
         self.__nombre = nombre
         self.__libros_prestados = []   
 
-    # --- Getters ---
     def getNombre(self):
         return self.__nombre
 
