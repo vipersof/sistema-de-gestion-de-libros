@@ -21,13 +21,12 @@ class Biblioteca:
         self.__libros = []
         self.__miembros = []
 
-    # ------------------------------------------------------------------ #
-    #  AGREGAR                                                             #
-    # ------------------------------------------------------------------ #
+   
+    #  AGREGAR   #
     def agregarLibro(self, titulo, autor, isbn):
         """Crea y agrega un libro nuevo. Lanza ValueError si el ISBN ya existe."""
         try:
-            self.buscarLibro(isbn)          # si lo encuentra, el ISBN ya está
+            self.buscarLibro(isbn)        
             raise ValueError(f"Ya existe un libro con ISBN {isbn}.")
         except LibroNoEncontradoError:
             libro = Libro(titulo, autor, isbn)
