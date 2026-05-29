@@ -2,7 +2,6 @@ from libro import Libro
 from miembro import Miembro
 
 
-# Excepciones personalizadas
 class LibroNoEncontradoError(Exception):
     pass
 
